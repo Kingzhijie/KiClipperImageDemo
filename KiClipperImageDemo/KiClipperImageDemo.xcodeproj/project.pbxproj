@@ -16,7 +16,6 @@
 		4C1D80171FBBE88800B86C89 /* KiClipperImageDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D80161FBBE88800B86C89 /* KiClipperImageDemoUITests.swift */; };
 		4C1D80331FBBE9EE00B86C89 /* KiClipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D80321FBBE9EE00B86C89 /* KiClipperView.swift */; };
 		4C1D80351FBC247B00B86C89 /* KiClipperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D80341FBC247B00B86C89 /* KiClipperHelper.swift */; };
-		4C1D80371FBC282600B86C89 /* KiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D80361FBC282600B86C89 /* KiViewController.swift */; };
 		4C1D80391FBC2F6C00B86C89 /* KiImageClipperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D80381FBC2F6C00B86C89 /* KiImageClipperViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +52,6 @@
 		4C1D80181FBBE88800B86C89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1D80321FBBE9EE00B86C89 /* KiClipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiClipperView.swift; sourceTree = "<group>"; };
 		4C1D80341FBC247B00B86C89 /* KiClipperHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiClipperHelper.swift; sourceTree = "<group>"; };
-		4C1D80361FBC282600B86C89 /* KiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiViewController.swift; sourceTree = "<group>"; };
 		4C1D80381FBC2F6C00B86C89 /* KiImageClipperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KiImageClipperViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +137,6 @@
 			children = (
 				4C1D80321FBBE9EE00B86C89 /* KiClipperView.swift */,
 				4C1D80341FBC247B00B86C89 /* KiClipperHelper.swift */,
-				4C1D80361FBC282600B86C89 /* KiViewController.swift */,
 				4C1D80381FBC2F6C00B86C89 /* KiImageClipperViewController.swift */,
 			);
 			path = KiClipperHelper;
@@ -284,7 +281,6 @@
 				4C1D80391FBC2F6C00B86C89 /* KiImageClipperViewController.swift in Sources */,
 				4C1D80331FBBE9EE00B86C89 /* KiClipperView.swift in Sources */,
 				4C1D80351FBC247B00B86C89 /* KiClipperHelper.swift in Sources */,
-				4C1D80371FBC282600B86C89 /* KiViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
