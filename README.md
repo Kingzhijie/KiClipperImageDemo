@@ -27,3 +27,5 @@
     public func photoWithSourceType(type:UIImagePickerControllerSourceType)
     //代理方法 , 获取图片后的回调方法
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+
+![](http://www.code4app.com/data/attachment/forum/201608/22/101043v7py0bnmpaayppb5.gif)
