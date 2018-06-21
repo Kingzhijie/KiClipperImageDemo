@@ -85,8 +85,13 @@ class ViewController: UIViewController,UIActionSheetDelegate {
     }
     
     func takePhoto() {
-        let sheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "相册", "拍照")
-        sheet.show(in: UIApplication.shared.keyWindow!)
+        
+        KiClipperHelper.sharedInstance.photoWithSourceType(type: .photoLibrary) //直接打开相册选取图片
+        
+//        KiClipperHelper.sharedInstance.photoWithSourceType(type: .camera) //打开相机拍摄照片
+        
+//        let sheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "相册", "拍照")
+//        sheet.show(in: UIApplication.shared.keyWindow!)
     }
     
     func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int){

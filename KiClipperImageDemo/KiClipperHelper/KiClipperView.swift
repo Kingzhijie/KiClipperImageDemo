@@ -115,7 +115,6 @@ class KiClipperView: UIView {
         let allTouches = event?.allTouches
         switch allTouches?.count {
         case 1?:
-            print("1个")
             let touchCurrent = allTouches?.first?.location(in: self)
             let x = (touchCurrent?.x ?? 0)! - (panTouch?.x ?? 0)!
             let y = (touchCurrent?.y ?? 0)! - (panTouch?.y ?? 0)!
@@ -130,7 +129,6 @@ class KiClipperView: UIView {
          panTouch = touchCurrent
          break
         case 2?:
-            print("2个")
             switch type {
             case .Move:
                 self.scaleView(self.baseImgView!, touches: (allTouches! as NSSet).allObjects)
@@ -147,7 +145,6 @@ class KiClipperView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("来来")
         switch type {
         case .Move:
             correctBackImgView()
@@ -173,6 +170,7 @@ class KiClipperView: UIView {
             height = (self.clipperView?.frame.size.height ?? 0)!
             width = height / (self.baseImgView?.frame.size.height ?? 0)! * width
         }
+        
         if x > (self.clipperView?.frame.origin.x ?? 0)! {
             x = (self.clipperView?.frame.origin.x ?? 0)!
         }else if x < ((self.clipperView?.frame.origin.x ?? 0)! + (self.clipperView?.frame.size.width ?? 0)! - width){
@@ -184,6 +182,7 @@ class KiClipperView: UIView {
         }else if y < (self.clipperView?.frame.origin.y ?? 0)! + (self.clipperView?.frame.size.height ?? 0)! - height {
             y = (self.clipperView?.frame.origin.y ?? 0)! + (self.clipperView?.frame.size.height ?? 0)! - height
         }
+        
         self.baseImgView?.frame = CGRect(x: x, y: y, width: width, height: height)
     }
     

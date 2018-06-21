@@ -28,7 +28,7 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
         imagePicker.delegate = self
         imagePicker.sourceType = type
         imagePicker.allowsEditing = systemEditing
-        imagePicker.modalTransitionStyle = .crossDissolve
+//        imagePicker.modalTransitionStyle = .crossDissolve
         nav?.present(imagePicker, animated: true, completion: nil)
     }
     
