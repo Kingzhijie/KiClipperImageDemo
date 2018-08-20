@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController,UIActionSheetDelegate {
     
     lazy var clippedImageView: UIImageView? = {
-        let clippedImageView = UIImageView(frame: CGRect(x: 20, y: 300, width: 300, height: 100))
+        let clippedImageView = UIImageView(frame: CGRect(x: 20, y: 300, width: 300, height: 300))
         clippedImageView.backgroundColor = .red
         return clippedImageView
     }()

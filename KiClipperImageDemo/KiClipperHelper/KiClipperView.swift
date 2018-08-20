@@ -173,13 +173,13 @@ class KiClipperView: UIView {
         
         if x > (self.clipperView?.frame.origin.x ?? 0)! {
             x = (self.clipperView?.frame.origin.x ?? 0)!
-        }else if x < ((self.clipperView?.frame.origin.x ?? 0)! + (self.clipperView?.frame.size.width ?? 0)! - width){
+        } else if x < ((self.clipperView?.frame.origin.x ?? 0)! + (self.clipperView?.frame.size.width ?? 0)! - width){
             x = (self.clipperView?.frame.origin.x ?? 0)! + (self.clipperView?.frame.size.width ?? 0)! - width
         }
         
         if y > (self.clipperView?.frame.origin.y ?? 0)! {
             y = (self.clipperView?.frame.origin.y ?? 0)!
-        }else if y < (self.clipperView?.frame.origin.y ?? 0)! + (self.clipperView?.frame.size.height ?? 0)! - height {
+        } else if y < (self.clipperView?.frame.origin.y ?? 0)! + (self.clipperView?.frame.size.height ?? 0)! - height {
             y = (self.clipperView?.frame.origin.y ?? 0)! + (self.clipperView?.frame.size.height ?? 0)! - height
         }
         
@@ -252,7 +252,10 @@ class KiClipperView: UIView {
                 imgFrame.size.height = view.frame.size.height * imgFrame.size.width / view.frame.size.width
                 let addwidth = imgFrame.size.width - view.frame.size.width
                 let addheight = imgFrame.size.height - view.frame.size.height
-                if imgFrame.size.width != 0 && imgFrame.size.height != 0{
+                let cripWidth = imgFrame.size.width - (clipperView?.frame.width ?? 0)
+                let cripHeight = imgFrame.size.height - (clipperView?.frame.height ?? 0)
+                
+                if imgFrame.size.width != 0 && imgFrame.size.height != 0 && cripWidth > -5 && cripHeight > -5 {
                     view.frame = CGRect(x:imgFrame.origin.x - addwidth/2.0, y: imgFrame.origin.y - addheight/2.0, width: imgFrame.width, height: imgFrame.height)
                 }
             }
