@@ -48,7 +48,7 @@ class ViewController: UIViewController,UIActionSheetDelegate {
         let button4 = UIButton(type: .custom)
         button4.backgroundColor = .red
         button4.setTitle("裁剪框移动,图片不动", for: .normal)
-        button4.frame = CGRect(x: 250, y: 200, width: 60, height: 60)
+        button4.frame = CGRect(x: 10, y: 260, width: 60, height: 60)
         button4.addTarget(self, action:#selector(action4), for: .touchUpInside)
         button4.sizeToFit()
         self.view.addSubview(button4)
@@ -94,17 +94,17 @@ class ViewController: UIViewController,UIActionSheetDelegate {
 //        sheet.show(in: UIApplication.shared.keyWindow!)
     }
     
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int){
-        DispatchQueue.main.async {
-            if buttonIndex == 0 {
-                //取消
-            }else if buttonIndex == 1 {
-                KiClipperHelper.sharedInstance.photoWithSourceType(type: .photoLibrary)
-            }else if buttonIndex == 2 {
-//                KiClipperHelper.sharedInstance.photoWithSourceType(type: .camera) //模拟机不支持相机
-            }
-        }
-    }
+//    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int){
+//        DispatchQueue.main.async {
+//            if buttonIndex == 0 {
+//                //取消
+//            }else if buttonIndex == 1 {
+//                KiClipperHelper.sharedInstance.photoWithSourceType(type: .photoLibrary)
+//            }else if buttonIndex == 2 {
+////                KiClipperHelper.sharedInstance.photoWithSourceType(type: .camera) //模拟机不支持相机
+//            }
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

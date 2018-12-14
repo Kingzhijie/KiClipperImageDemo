@@ -23,7 +23,7 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
     public weak var nav:UINavigationController? //当前导航
     public var clipperType:ClipperType = .Move //裁剪框移动类型 (move图片移动, stay裁剪框移动)
     
-    public func photoWithSourceType(type:UIImagePickerControllerSourceType) {
+    public func photoWithSourceType(type:UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = type
@@ -33,7 +33,10 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
     }
     
     //MARK UIImagePickerControllerDelegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         if !isSystemType { //自定义裁剪
             let image = self.turnImageWithInfo(info: info)
             let clipperVC = KiImageClipperViewController()
@@ -52,7 +55,7 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
             if !self.systemEditing{
                 image = self.turnImageWithInfo(info: info)
             }else{
-                image = info[UIImagePickerControllerEditedImage] as? UIImage
+                image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage
             }
             if clippedImageHandler != nil{
                 clippedImageHandler!(image ?? UIImage())
@@ -64,13 +67,13 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
    private var image:UIImage?
     
    private func turnImageWithInfo(info:[String:Any]) -> UIImage {
-        var image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        var image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
         //类型为 UIImagePickerControllerOriginalImage 时调整图片角度
-        let type = info[UIImagePickerControllerMediaType] as? String
+        let type = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaType)] as? String
         
         if type == "public.image" {
             let imageOrientation = image?.imageOrientation
-            if imageOrientation != UIImageOrientation.up{
+            if imageOrientation != UIImage.Orientation.up{
                 // 原始图片可以根据照相时的角度来显示，但 UIImage无法判定，于是出现获取的图片会向左转90度的现象。
                 UIGraphicsBeginImageContext((image?.size)!)
                 image?.draw(in: CGRect(x: 0, y: 0, width: (image?.size.width)!, height: (image?.size.height)!))
@@ -82,4 +85,14 @@ class KiClipperHelper: NSObject,UIImagePickerControllerDelegate,UINavigationCont
     }
     
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }
