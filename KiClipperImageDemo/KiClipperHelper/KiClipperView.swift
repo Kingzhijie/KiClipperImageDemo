@@ -46,12 +46,12 @@ class KiClipperView: UIView {
     private lazy var baseImgView: UIImageView? = {
         let baseImgView = UIImageView()
         self.addSubview(baseImgView)
-        self.sendSubview(toBack: baseImgView)
+        self.sendSubviewToBack(baseImgView)
         return baseImgView
     }()
     private lazy var fillLayer: CAShapeLayer? = {
         let fillLayer = CAShapeLayer()
-        fillLayer.fillRule = kCAFillRuleEvenOdd
+        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
         fillLayer.fillColor = UIColor.black.cgColor
         fillLayer.opacity = 0.5
         self.layer.addSublayer(fillLayer)
@@ -75,7 +75,7 @@ class KiClipperView: UIView {
     }
 
     private func loadSubViews() {
-        self.layer.contentsGravity = kCAGravityResizeAspect
+        self.layer.contentsGravity = CALayerContentsGravity.resizeAspect
     }
     
     private func setClipperView() {
